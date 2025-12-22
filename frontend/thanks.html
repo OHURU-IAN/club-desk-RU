@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Registration complete</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css"/>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="inner">
+        <span class="top-tag">Riara University Clubs Desk</span>
+        <div class="pill">Call: +254 703 038 000 | info@riarauniversity.ac.ke</div>
+      </div>
+    </div>
+
+    <main class="container">
+      <div class="section-head">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <p class="eyebrow">Riara University</p>
+            <h1 id="title">Registration complete</h1>
+            <p class="subtitle" id="subtitle">You can now join the club WhatsApp group.</p>
+          </div>
+        </div>
+        <a class="pill" href="./index.html">< Back to clubs</a>
+      </div>
+
+      <div class="card" style="grid-column: span 12;">
+        <div class="notice" id="note">
+          If you are seeing placeholder text, the admin has not added the WhatsApp invite link yet.
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="btnrow">
+          <a class="btn success" id="joinBtn" href="#" target="_blank" rel="noopener">Join WhatsApp group</a>
+          <a class="btn secondary" href="./index.html">Back to clubs</a>
+        </div>
+
+        <p class="small" style="margin-top:10px">
+          Safety: do not share this invite link outside the Riara community.
+        </p>
+      </div>
+
+      <div class="footer">This page is designed to be the redirect/landing page after registration.</div>
+    </main>
+  </div>
+
+<script src="./assets/js/app.js"></script>
+<script>
+(async () => {
+  const clubs = await loadClubs();
+  const map = byId(clubs);
+  const clubId = getQueryParam('club');
+  const club = map[clubId];
+
+  const title = document.getElementById('title');
+  const subtitle = document.getElementById('subtitle');
+  const joinBtn = document.getElementById('joinBtn');
+  const note = document.getElementById('note');
+
+  if(!club){
+    title.textContent = 'Registration complete';
+    subtitle.textContent = 'Club not found in the link.';
+    joinBtn.style.display = 'none';
+    note.textContent = 'We could not find this club. Return to the clubs list and try again.';
+    return;
+  }
+
+  document.title = 'Registered: ' + club.name;
+  title.textContent = 'Registered: ' + club.name;
+  subtitle.textContent = 'Next step: join the WhatsApp group for ' + club.name + '.';
+
+  if(club.whatsapp_invite_url && !club.whatsapp_invite_url.startsWith('REPLACE_')){
+    joinBtn.href = club.whatsapp_invite_url;
+    joinBtn.textContent = 'Join ' + club.name + ' on WhatsApp';
+    note.textContent = 'Click below to join the WhatsApp group.';
+  } else {
+    joinBtn.href = '#';
+    joinBtn.style.pointerEvents = 'none';
+    joinBtn.style.opacity = '0.6';
+    joinBtn.textContent = 'WhatsApp link not ready';
+    note.textContent = 'WhatsApp link not configured yet. Please contact the club lead or try again later.';
+  }
+})();
+</script>
+</body>
+</html>

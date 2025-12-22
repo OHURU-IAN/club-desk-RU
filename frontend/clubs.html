@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Riara Clubs | Browse & Register</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css"/>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="inner">
+        <span class="top-tag">Riara University Clubs Desk</span>
+        <div class="pill">Ready-to-use links | one per club</div>
+      </div>
+    </div>
+
+    <main class="container">
+      <div class="sub-hero">
+        <div class="section-head" style="margin-bottom:10px;">
+          <div>
+            <p class="eyebrow">Riara University</p>
+            <h1 class="section-title" style="margin:0">Riara Clubs</h1>
+            <p class="subtitle" style="margin:6px 0 0; max-width:780px;">
+              Explore student societies shaped for Riara University. Connect, lead, serve, and grow in communities that carry the RU spirit.
+            </p>
+          </div>
+          <div class="btnrow">
+            <a class="btn secondary" href="./index.html">< Back to landing</a>
+          </div>
+        </div>
+        <div class="badge-row">
+          <div class="chip">Call: +254 703 038 000</div>
+          <div class="chip">Email: info@riarauniversity.ac.ke</div>
+          <div class="chip">Hours: Mon–Fri, 8:00am–5:00pm</div>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <div></div>
+        <div class="btnrow"></div>
+      </div>
+
+      <div class="grid" id="clubGrid" aria-live="polite"></div>
+
+      <div class="footer">
+        RU Student Activities · Riara University — Need help? Call +254 703 038 000 or email info@riarauniversity.ac.ke
+      </div>
+    </main>
+  </div>
+
+<script src="./assets/js/app.js"></script>
+<script>
+(async () => {
+  const clubs = await loadClubs();
+  const grid = document.getElementById('clubGrid');
+
+  clubs.forEach(club => {
+    const card = el('div', {class: 'card'});
+    card.appendChild(el('h2', {html: club.name}));
+    card.appendChild(el('p', {class: 'tagline', html: club.tagline || ''}));
+    card.appendChild(el('p', {class: 'desc', html: club.description || ''}));
+
+    const meta = el('div', {class: 'meta'});
+    meta.appendChild(metaLine('T', club.meeting_time || 'Meeting time TBC'));
+    meta.appendChild(metaLine('L', club.location || 'Location TBC'));
+    meta.appendChild(metaLine('P', club.lead || 'Club Lead TBC'));
+    card.appendChild(meta);
+
+    const row = el('div', {class: 'btnrow'});
+    row.appendChild(el('a', {class: 'btn primary', href: './club.html?club=' + encodeURIComponent(club.id)}, [
+      document.createTextNode('View & Register')
+    ]));
+    row.appendChild(el('a', {class: 'btn secondary', href: './club.html?club=' + encodeURIComponent(club.id) + '#admin'}, [
+      document.createTextNode('Admin setup')
+    ]));
+    card.appendChild(row);
+
+    grid.appendChild(card);
+  });
+})();
+</script>
+</body>
+</html>

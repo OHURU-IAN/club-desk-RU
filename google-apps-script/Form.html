@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body{font-family:Arial,Helvetica,sans-serif; padding:18px; max-width:720px; margin:0 auto}
+      .card{border:1px solid #ddd; border-radius:12px; padding:16px}
+      label{display:block; margin:12px 0 6px; font-weight:600}
+      input,select,textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:10px}
+      button{margin-top:14px; padding:10px 12px; border:0; border-radius:10px; background:#1a73e8; color:white; font-weight:700; cursor:pointer}
+      .muted{color:#666; font-size:12px; margin-top:10px}
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2><?= clubName ?></h2>
+      <p>Register here. After you submit, you’ll be redirected to the club’s WhatsApp join page.</p>
+
+      <form method="post" action="<?= ScriptApp.getService().getUrl() ?>">
+        <input type="hidden" name="clubId" value="<?= clubId ?>">
+
+        <label>Student name</label>
+        <input name="studentName" required>
+
+        <label>Year group</label>
+        <select name="yearGroup" required>
+          <option value="">Select…</option>
+          <option>Year 7</option>
+          <option>Year 8</option>
+          <option>Year 9</option>
+          <option>Year 10</option>
+          <option>Year 11</option>
+          <option>Sixth Form</option>
+        </select>
+
+        <label>School email (optional)</label>
+        <input name="email" type="email" placeholder="name@school.org">
+
+        <label>Notes (optional)</label>
+        <textarea name="notes" rows="3" placeholder="Anything the club lead should know?"></textarea>
+
+        <button type="submit">Submit registration</button>
+
+        <p class="muted">If you don’t get redirected, tell the club lead or IT.</p>
+      </form>
+    </div>
+  </body>
+</html>

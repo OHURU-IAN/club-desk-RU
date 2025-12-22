@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Riara Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css"/>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="inner">
+        <span class="top-tag">Riara University Clubs Desk</span>
+        <div class="pill">Call: +254 703 038 000 | info@riarauniversity.ac.ke</div>
+      </div>
+    </div>
+
+    <main class="container">
+      <div class="section-head">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <p class="eyebrow">Riara University</p>
+            <h1 id="clubName">Club</h1>
+            <p class="subtitle" id="clubTagline"></p>
+          </div>
+        </div>
+        <a class="pill" href="./index.html">< Back to clubs</a>
+      </div>
+
+      <div class="card" style="grid-column: span 12;">
+        <p class="desc" id="clubDesc"></p>
+        <div class="meta" id="clubMeta"></div>
+
+        <div class="btnrow">
+          <a class="btn primary" id="registerBtn" href="#">Register now</a>
+          <a class="btn secondary" id="whatsBtn" href="#" target="_blank" rel="noopener">WhatsApp link (admins)</a>
+        </div>
+
+        <p class="small" style="margin-top:10px">
+          Students should normally see the WhatsApp link after registering. The button above is only for quick testing.
+        </p>
+
+        <div class="hr"></div>
+
+        <div id="admin" class="notice">
+          <b>Admin setup checklist</b>
+          <ol>
+            <li>Open <code>frontend/data/clubs.json</code>.</li>
+            <li>For this club, set:
+              <ul>
+                <li><code>registration_url</code> -> your Google Form link or Apps Script link.</li>
+                <li><code>whatsapp_invite_url</code> -> the WhatsApp "Invite via link" URL.</li>
+              </ul>
+            </li>
+            <li>Optional safer flow: use the included Google Apps Script (in <code>google-apps-script/</code>) to record registration to a Sheet and then redirect to the correct WhatsApp link.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="footer">Tip: If you prefer to hide raw WhatsApp invite links, use the Apps Script redirect method.</div>
+    </main>
+  </div>
+
+<script src="./assets/js/app.js"></script>
+<script>
+(async () => {
+  const clubs = await loadClubs();
+  const map = byId(clubs);
+  const clubId = getQueryParam('club');
+  const club = map[clubId];
+
+  if(!club){
+    document.title = 'Club not found | Riara Clubs';
+    document.getElementById('clubName').textContent = 'Club not found';
+    document.getElementById('clubTagline').textContent = 'Check the link or clubs.json';
+    document.getElementById('clubDesc').textContent = 'We could not find this club. Please return to the clubs list.';
+    document.getElementById('registerBtn').style.display = 'none';
+    document.getElementById('whatsBtn').style.display = 'none';
+    return;
+  }
+
+  document.title = club.name + ' | Riara Clubs';
+  document.getElementById('clubName').textContent = club.name;
+  document.getElementById('clubTagline').textContent = club.tagline || '';
+  document.getElementById('clubDesc').textContent = club.description || '';
+
+  const meta = document.getElementById('clubMeta');
+  meta.innerHTML = '';
+  meta.appendChild(metaLine('T', club.meeting_time || 'Meeting time TBC'));
+  meta.appendChild(metaLine('L', club.location || 'Location TBC'));
+  meta.appendChild(metaLine('P', club.lead || 'Club Lead TBC'));
+  meta.appendChild(metaLine('#', 'Club ID: ' + club.id));
+
+  const reg = document.getElementById('registerBtn');
+  reg.href = club.registration_url || '#';
+  reg.textContent = 'Register for ' + club.name;
+
+  const whats = document.getElementById('whatsBtn');
+  whats.href = club.whatsapp_invite_url || '#';
+})();
+</script>
+</body>
+</html>

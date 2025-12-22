@@ -1,0 +1,79 @@
+[
+  {
+    "id": "amnesty-coc",
+    "name": "Amnesty International - Riara Circle of Conscience",
+    "tagline": "Stand up for human rights on campus and beyond.",
+    "description": "Awareness drives, debates, and campaigns on expression, gender equality, refugee rights, and ending discrimination. Open to any student passionate about justice.",
+    "meeting_time": "Monthly meetups; schedule shared on WhatsApp",
+    "location": "Riara University campus",
+    "lead": "Contact: Kevin (Chairperson) 0762697115",
+    "registration_url": "./thanks.html?club=amnesty-coc",
+    "whatsapp_invite_url": "https://wa.me/254703038000?text=I%20would%20like%20to%20join%20Amnesty%20Riara%20COC"
+  },
+  {
+    "id": "aylf",
+    "name": "African Youth Leadership Forum (AYLF)",
+    "tagline": "Grow as an ethical, service-driven leader.",
+    "description": "Small groups, leadership workshops, mentorship, and service projects that build integrity, accountability, and community impact.",
+    "meeting_time": "Weekly small groups; cadence confirmed in chat",
+    "location": "Riara University campus",
+    "lead": "AYLF Riara facilitators",
+    "registration_url": "./thanks.html?club=aylf",
+    "whatsapp_invite_url": "https://wa.me/254703038000?text=I%20would%20like%20to%20join%20AYLF%20Riara"
+  },
+  {
+    "id": "rumsa",
+    "name": "RUMSA - Riara University Muslim Students Association",
+    "tagline": "Faith, fellowship, and service for Muslim students.",
+    "description": "Prayers, Islamic discussions, charity initiatives, and community forums that strengthen brotherhood and sisterhood on campus.",
+    "meeting_time": "Weekly gatherings; timings shared to members",
+    "location": "Prayer and community spaces, Riara University",
+    "lead": "RUMSA leadership team",
+    "registration_url": "./thanks.html?club=rumsa",
+    "whatsapp_invite_url": "https://wa.me/254703038000?text=I%20would%20like%20to%20join%20RUMSA%20at%20Riara"
+  },
+  {
+    "id": "kmun",
+    "name": "Kenya Model United Nations (KMUN) - Riara Chapter",
+    "tagline": "Diplomacy, debate, and global policy simulation.",
+    "description": "Mock debates, CSR drives, socials, seminars, and an annual UNON conference. Membership subscription is Ksh 500 per session.",
+    "meeting_time": "Regular chapter sessions; dates posted in chat",
+    "location": "Riara University campus and UNON for conference",
+    "lead": "KMUN Riara Chapter leads",
+    "registration_url": "./thanks.html?club=kmun",
+    "whatsapp_invite_url": "https://wa.me/254703038000?text=I%20would%20like%20to%20join%20KMUN%20Riara%20Chapter"
+  },
+  {
+    "id": "mooting-society",
+    "name": "Mooting Society Riara University",
+    "tagline": "Advocacy training through simulated court proceedings.",
+    "description": "Internal mock rounds and coaching that sharpen research, writing, and oral argument for competitions in litigation, arbitration, and mediation.",
+    "meeting_time": "Practice rounds scheduled each term",
+    "location": "Law School, Riara University",
+    "lead": "Contact: rlms@riarauniversity.ac.ke",
+    "registration_url": "./thanks.html?club=mooting-society",
+    "whatsapp_invite_url": "https://wa.me/254703038000?text=I%20would%20like%20to%20join%20the%20Mooting%20Society"
+  },
+  {
+    "id": "rucu",
+    "name": "Riara University Christian Union (RUCU)",
+    "tagline": "Non-denominational Christian fellowship on campus.",
+    "description": "Teaching of the Word, prayer, fellowship, outreach, and discipleship that nurture spiritual growth, integrity, and service. No membership fee.",
+    "meeting_time": "Weekly fellowship; schedule shared with members",
+    "location": "Chaplaincy and campus venues, Riara University",
+    "lead": "RUCU leadership team",
+    "registration_url": "./thanks.html?club=rucu",
+    "whatsapp_invite_url": "https://wa.me/254703038000?text=I%20would%20like%20to%20join%20RUCU"
+  },
+  {
+    "id": "ru-i-tech",
+    "name": "RU i-Tech",
+    "tagline": "Bridge classroom learning with real-world tech skills.",
+    "description": "Community for CS and BBIT (open to all) to explore industry trends, projects, and accountability. Registration fee: Ksh 200 per semester.",
+    "meeting_time": "Tech meetups during the semester",
+    "location": "School of Computing Science, Riara University",
+    "lead": "RU i-Tech executive team",
+    "registration_url": "./thanks.html?club=ru-i-tech",
+    "whatsapp_invite_url": "https://wa.me/254703038000?text=I%20would%20like%20to%20join%20RU%20i-Tech"
+  }
+]

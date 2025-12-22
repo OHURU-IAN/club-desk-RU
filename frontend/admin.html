@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Riara Clubs | Admin Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css"/>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="inner">
+        <span class="top-tag">Riara University Clubs Desk</span>
+        <div class="pill">Admin guide · setup instructions</div>
+      </div>
+    </div>
+
+    <main class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Admin guide</p>
+          <h1 class="section-title" style="margin:0">Manage club links and flows</h1>
+          <p class="subtitle" style="max-width:760px">
+            Use this checklist to keep registration and WhatsApp invite links current. Pages are static; all data lives in one JSON file.
+          </p>
+        </div>
+        <a class="pill" href="./index.html">< Back to clubs</a>
+      </div>
+
+      <div class="card" style="grid-column: span 12;">
+        <h2 style="margin-top:0">Quick checklist</h2>
+        <ol>
+          <li>Edit <code>frontend/data/clubs.json</code>.</li>
+          <li>For each club, set:
+            <ul>
+              <li><code>registration_url</code> -> your Google Form link or Apps Script link.</li>
+              <li><code>whatsapp_invite_url</code> -> the WhatsApp "Invite via link" URL.</li>
+            </ul>
+          </li>
+          <li>Test flow: open <code>index.html</code> -> pick a club -> click Register -> ensure your form redirects to <code>thanks.html?club=&lt;id&gt;</code>.</li>
+          <li>On <code>thanks.html</code>, verify the WhatsApp button opens the right invite.</li>
+        </ol>
+
+        <div class="hr"></div>
+
+        <h3>Tips</h3>
+        <ul>
+          <li>Hide raw WhatsApp links from students by using the provided Apps Script redirect method (see <code>google-apps-script/</code>).</li>
+          <li>Keep the <code>id</code> stable; it is used in URLs (<code>club.html?club=id</code> and <code>thanks.html?club=id</code>).</li>
+          <li>Host as a static site (Riara site, GitHub Pages, Netlify, etc.). No server needed.</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
